@@ -35,8 +35,9 @@ export default function DashboardRoute() {
     <Stack.Navigator
       initialRouteName="ToDoListing"
       screenOptions={{
-        headerShown: true,
+        headerShown: false,
         gestureDirection: 'horizontal',
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         transitionSpec: {
           open: config,
           close: config,

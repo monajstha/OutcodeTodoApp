@@ -4,9 +4,11 @@ import React, {Component, useContext} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
 import Icons from 'react-native-vector-icons/Feather';
 import {Tasks} from '../../../App';
-import {TodoContext} from '../../context/Context';
+import {TodoContext} from '../../contextAPI/Context';
 import {DashboardStack} from '../../route/DashboardRoute';
 import {Colors} from '../../utils/colors';
+import {EmptyDataComponent} from '../components/EmptyData';
+import Header from '../components/Header';
 import TaskCard from '../components/TaskCard';
 
 const ToDoListing = () => {
@@ -17,6 +19,7 @@ const ToDoListing = () => {
 
   return (
     <View style={styles.container}>
+      <Header title="All tasks" />
       <FlatList
         data={tasks}
         renderItem={({item, index}) => {
@@ -30,6 +33,7 @@ const ToDoListing = () => {
             />
           );
         }}
+        ListEmptyComponent={<EmptyDataComponent />}
       />
       <TouchableOpacity
         style={styles.addBtn}
@@ -43,7 +47,7 @@ const ToDoListing = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: Colors.primaryGray,
+    backgroundColor: Colors.primaryBackground,
     position: 'relative',
     // padding: 16,
   },

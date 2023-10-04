@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
-import {TodoContext} from '../../context/Context';
+import {TodoContext} from '../../contextAPI/Context';
 import moment from 'moment';
 import {Colors} from '../../utils/colors';
 import Icon from 'react-native-vector-icons/Feather';
@@ -53,8 +53,8 @@ const TaskCard = (props: Props) => {
       style={[
         styles.container,
         {
-          borderLeftWidth: pressed ? 5 : 0,
-          borderLeftColor: pressed ? Colors.primaryGray : Colors.primaryGray,
+          borderLeftWidth: pressed ? 10 : 0,
+          borderLeftColor: pressed ? '#53599a' : Colors.primaryGray,
         },
       ]}
       onPress={() => setPressed(!pressed)}>
@@ -122,20 +122,21 @@ const TaskCard = (props: Props) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    // backgroundColor: Colors.gray300,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.gray500,
     paddingLeft: 12,
     paddingVertical: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 7,
+    // marginBottom: 7,
+    // backgroundColor: 'red',
   },
   contentWrapper: {
     width: '80%',
-    backgroundColor: 'red',
   },
   btnWrapper: {
     flexDirection: 'row',
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
     justifyContent: 'space-between',
     width: '20%',
     alignItems: 'center',
