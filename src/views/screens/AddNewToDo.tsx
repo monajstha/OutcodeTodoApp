@@ -1,6 +1,6 @@
 //import liraries
 import React, {Component, useContext, useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Keyboard} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import {Colors} from '../../utils/colors';
 import {useNavigation} from '@react-navigation/native';
@@ -10,9 +10,18 @@ import Icons from 'react-native-vector-icons/Feather';
 import {TodoContext} from '../../context/Context';
 
 const AddNewToDo = () => {
-  const {tasks, addTasks} = useContext(TodoContext);
+  const {tasks, addTask} = useContext(TodoContext);
   const [todo, setTodo] = useState('');
   const navigation = useNavigation<StackNavigationProp<DashboardStack>>();
+
+  const handleAddTask = (task: string) => {
+    setTodo('');
+    addTask(task);
+    Keyboard.dismiss();
+    setTimeout(() => {
+      navigation.navigate('ToDoListing');
+    }, 300);
+  };
 
   return (
     <View style={styles.container}>
@@ -25,7 +34,9 @@ const AddNewToDo = () => {
         onChangeText={text => setTodo(text)}
         autoFocus={true}
       />
-      <TouchableOpacity style={styles.addBtn} onPress={() => addTasks(todo)}>
+      <TouchableOpacity
+        style={styles.addBtn}
+        onPress={() => handleAddTask(todo)}>
         <Icons name="check" size={35} color={Colors.primaryGray} />
       </TouchableOpacity>
     </View>
