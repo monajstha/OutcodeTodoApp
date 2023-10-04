@@ -1,12 +1,6 @@
 This is a simple TodoList app built with React Native. You can use it to keep track of your tasks and todos efficiently.
 
-![Empty Listing Screenshot](https://ibb.co/N6qrHK8)
-![Add Task Screenshot](https://ibb.co/26ybvyy)
-![Task Listing Screenshot](https://ibb.co/phnQ9VM)
-![Task Press View Screenshot](https://ibb.co/gr87BC0)
-![Task Edit View Screenshot](https://ibb.co/FsQrNw9)
-![Task Delete View Screenshot](https://ibb.co/KX7PRqC)
-![Task Completed View Screenshot](https://ibb.co/tBVvnvQ)
+[Download the apk](https://drive.google.com/file/d/11oFJzy7w5WLVgGuTSFk4sX7wrOCW6oOi/view?usp=drive_link)
 
 ## Features
 
