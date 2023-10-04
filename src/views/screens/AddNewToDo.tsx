@@ -1,5 +1,12 @@
 import React, {Component, useContext, useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Keyboard} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Keyboard,
+  SafeAreaView,
+} from 'react-native';
 import {TextInput} from 'react-native-gesture-handler';
 import {Colors} from '../../utils/colors';
 import {useNavigation} from '@react-navigation/native';
@@ -24,7 +31,7 @@ const AddNewToDo = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header backBtn title="New task" />
       <View style={styles.contentWrapper}>
         <Text style={styles.headerText}>Add a new task</Text>
@@ -43,7 +50,7 @@ const AddNewToDo = () => {
         onPress={() => handleAddTask(todo)}>
         <Icons name="check" size={35} color={Colors.primaryWhite} />
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -61,7 +68,8 @@ const styles = StyleSheet.create({
     width: '90%',
     borderBottomWidth: 1,
     borderBottomColor: '#0b032d',
-    color: 'black',
+    color: Colors.primaryBlack,
+    marginTop: 5,
   },
   addBtn: {
     height: 50,

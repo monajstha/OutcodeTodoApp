@@ -1,10 +1,13 @@
 import * as React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {Colors} from '../../utils/colors';
 
 export const EmptyDataComponent = () => {
   return (
     <View style={styles.container}>
-      <Text>No task has been added yet!</Text>
+      <Text style={{color: Colors.primaryBlack}}>
+        No task has been added yet!
+      </Text>
     </View>
   );
 };

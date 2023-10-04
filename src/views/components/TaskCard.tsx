@@ -14,6 +14,7 @@ import {Colors} from '../../utils/colors';
 import Icon from 'react-native-vector-icons/Feather';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import {TextInput} from 'react-native-gesture-handler';
+import CheckBox from '@react-native-community/checkbox';
 
 interface Props {
   task: string;
@@ -59,17 +60,22 @@ const TaskCard = (props: Props) => {
       ]}
       onPress={() => setPressed(!pressed)}>
       <View style={styles.contentWrapper}>
-        <BouncyCheckbox
-          size={25}
-          fillColor="green"
-          unfillColor="#FFFFFF"
-          text={props?.task}
-          iconStyle={{borderColor: Colors.primaryGray}}
-          innerIconStyle={{borderWidth: 2}}
-          textStyle={styles.task}
-          onPress={() => toggleTask(props?.index)}
-          isChecked={props?.completed}
-        />
+        <View style={styles.wrapper}>
+          <CheckBox
+            disabled={false}
+            value={props?.completed}
+            onValueChange={() => toggleTask(props?.index)}
+          />
+          <Text
+            style={[
+              styles.task,
+              {
+                textDecorationLine: props?.completed ? 'line-through' : 'none',
+              },
+            ]}>
+            {props?.task}
+          </Text>
+        </View>
         <Text style={styles.date}>
           {moment(props?.createdAt).format('ddd MMM Do YYYY, hh:mm a')}
         </Text>
@@ -94,7 +100,7 @@ const TaskCard = (props: Props) => {
         }}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalTitle}>Edit the task</Text>
+            <Text style={[styles.modalTitle]}>Edit the task</Text>
             <TextInput
               style={styles.input}
               placeholder="Enter your task here"
@@ -132,6 +138,10 @@ const styles = StyleSheet.create({
   contentWrapper: {
     width: '80%',
   },
+  wrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   btnWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -145,11 +155,13 @@ const styles = StyleSheet.create({
     fontFamily: 'JosefinSans-Regular',
     color: Colors.primaryBlack,
     lineHeight: 25,
+    marginLeft: 15,
   },
   date: {
     fontWeight: '300',
     fontSize: 14,
     marginLeft: 42,
+    color: Colors.primaryBlack,
   },
   centeredView: {
     flex: 1,

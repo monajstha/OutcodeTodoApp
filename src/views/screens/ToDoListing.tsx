@@ -1,7 +1,14 @@
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import React, {Component, useContext} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  FlatList,
+  SafeAreaView,
+} from 'react-native';
 import Icons from 'react-native-vector-icons/Feather';
 import {Tasks} from '../../../App';
 import {TodoContext} from '../../contextAPI/Context';
@@ -20,7 +27,7 @@ const ToDoListing = () => {
   console.log({tasks});
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header title="All tasks" />
       <FlatList
         data={tasks}
@@ -41,7 +48,7 @@ const ToDoListing = () => {
         onPress={() => navigation.navigate('AddNewToDo')}>
         <Icons name="plus" size={35} color={Colors.primaryWhite} />
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
