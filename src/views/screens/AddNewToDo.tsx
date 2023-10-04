@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     position: 'relative',
-    // padding: 16,
     backgroundColor: Colors.primaryBackground,
   },
   contentWrapper: {
@@ -84,5 +83,4 @@ const styles = StyleSheet.create({
   },
 });
 
-//make this component available to the app
 export default AddNewToDo;

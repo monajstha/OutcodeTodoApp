@@ -13,6 +13,8 @@ import TaskCard from '../components/TaskCard';
 
 const ToDoListing = () => {
   const navigation = useNavigation<StackNavigationProp<DashboardStack>>();
+
+  // accessing tasks using the useContext hook
   const {tasks} = useContext(TodoContext);
 
   console.log({tasks});
@@ -23,7 +25,6 @@ const ToDoListing = () => {
       <FlatList
         data={tasks}
         renderItem={({item, index}) => {
-          console.log('listing index', index);
           return (
             <TaskCard
               task={item?.task}
@@ -49,7 +50,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.primaryBackground,
     position: 'relative',
-    // padding: 16,
   },
   addBtn: {
     height: 50,

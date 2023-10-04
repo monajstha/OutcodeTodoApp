@@ -14,6 +14,7 @@ function App(): JSX.Element {
   const [tasks, setTasks] = useState<Tasks[]>([]);
 
   useEffect(() => {
+    // fetch data from async
     const getAsyncData = async () => {
       try {
         const asyncData = await AsyncStorage.getItem('todoList');
@@ -30,6 +31,7 @@ function App(): JSX.Element {
     getAsyncData();
   }, []);
 
+  // Add the task
   const addTask = (text: string) => {
     let allTasks = [...tasks];
     allTasks = [
@@ -43,6 +45,7 @@ function App(): JSX.Element {
     setTasks(allTasks);
   };
 
+  // Edit the task
   const editTask = (index: number, editedTask: string) => {
     console.log('edit index', index);
     let totalTasks = [...tasks];
@@ -58,6 +61,7 @@ function App(): JSX.Element {
     setTasks(totalTasks);
   };
 
+  // Toggle the task to complete
   const toggleTask = (index: number) => {
     console.log('toggle index', index);
     let completedTask = [...tasks];
@@ -69,6 +73,7 @@ function App(): JSX.Element {
     setTasks(completedTask);
   };
 
+  // Delete the task
   const deleteTask = (index: number) => {
     console.log('delete index', index);
     let totalTasks = [...tasks];
@@ -80,6 +85,7 @@ function App(): JSX.Element {
     setTasks(totalTasks);
   };
 
+  // adding the tasks and functions as value to pass it to provider
   const value = {tasks, addTask, editTask, toggleTask, deleteTask};
 
   return (

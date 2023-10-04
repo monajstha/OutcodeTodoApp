@@ -128,15 +128,12 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    // marginBottom: 7,
-    // backgroundColor: 'red',
   },
   contentWrapper: {
     width: '80%',
   },
   btnWrapper: {
     flexDirection: 'row',
-    // backgroundColor: 'green',
     justifyContent: 'space-between',
     width: '20%',
     alignItems: 'center',
@@ -157,15 +154,12 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: 'center',
-    // alignItems: 'center',
-    // marginTop: 22,
   },
   modalView: {
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 5,
     padding: 16,
-    // alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -185,7 +179,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'flex-end',
     width: '30%',
-    // backgroundColor: 'red',
     justifyContent: 'space-between',
   },
   modalBtnText: {

@@ -9,6 +9,7 @@ import ToDoListing from '../views/screens/ToDoListing';
 
 const Stack = createStackNavigator<DashboardStack>();
 
+// defining type for dashbaord stack screens
 export type DashboardStack = {
   ToDoListing: undefined;
   AddNewToDo: undefined;
